@@ -1,0 +1,23 @@
+{% extends 'AuthApp/base.html' %}
+{% load static %}
+
+{% block body_block %}
+
+<div class="jumbotron">
+  {% if registered %}
+    <h1>Thank you for registering!</h1>
+  {% else %}
+   <h1>Register Here!</h1>
+   <h3>Fill out this form:</h3>
+
+   <form class="" enctype="multipart/form-data" method="post">
+     {% csrf_token %}
+     {# the following tags are defined by views #}
+     {{ user_form.as_p }}
+     {{ profile_form.as_p }}
+     <input type="submit" name="" value="Register">
+   </form>
+
+  {% endif %}
+{% endblock %}
+</div>
